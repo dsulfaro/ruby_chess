@@ -1,9 +1,16 @@
 require_relative "piece"
+require "byebug"
 
 class Board
 
-  def initalize
-    @grid = Array.new(8) { Array.new(8) }
+  attr_reader :grid
+
+  def initialize
+    @grid = Array.new(8) { Array.new(8) { "x" } }
+  end
+
+  def grid
+    @grid
   end
 
   def [](pos)
