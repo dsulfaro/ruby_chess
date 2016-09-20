@@ -1,14 +1,8 @@
 class Piece
 
-  MOVES = {
-    left: [0, -1],
-    right: [0, 1],
-    up: [-1, 0],
-    down: [1, 0]
-  }
+  attr_reader :color, :pos
 
-
-  def initalize(color, board, pos)
+  def initialize(color, board, pos)
     @color = color
     @board = board
     @pos = pos
@@ -25,6 +19,15 @@ class Piece
   end
 
   def valid_moves
+  end
+
+  def valid_move?(pos)
+    x, y = pos
+
+    return false if x < 0 || x > 7
+    return false if y < 0 || y > 7
+
+    true
   end
 
   private

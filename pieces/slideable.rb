@@ -1,6 +1,30 @@
 module SlidingPiece
 
+  HORIZONTAL_DIRS = [
+    [0, -1],
+    [0, 1],
+    [-1, 0],
+    [1, 0]
+  ]
+
+  DIAGONAL_DIRS = [
+    [-1, -1],
+    [-1, 1],
+    [1, -1],
+    [1, 1]
+  ]
+
+
   def moves
+    moves = []
+
+    move_dirs.each do |coord|
+      coord_1, coord_2 = coord
+
+      moves.concat(grow_unblocked_moves_in_dir(coord_1,coord_2))
+    end
+
+    moves
   end
 
   private
@@ -8,21 +32,30 @@ module SlidingPiece
   end
 
   def horizontal_dirs
-    dirs = []
-    x,y = self.pos
-
-    MOVES.each do |k,v|
-      new_pos = [v.first + x, v.last + y]
-      dirs << new_pos
-    end
-
-    dirs
+    HORIZONTAL_DIRS
   end
 
   def diagonal_dirs
+    DIAGONAL_DIRS
   end
 
+
   def grow_unblocked_moves_in_dir(dx, dy)
+    x,y = @pos
+    unblocked_moves = []
+
+    x += dx
+    y += dy
+
+    while (self.valid_move?([x,y])) && (@board[[x,y]].is_a? NullPiece)
+      unblocked_moves << [x,y]
+      x += dx
+      y += dy
+    end
+
+    # if there's an enemy, add that position as well
+    unblocked_moves << [x,y] if (self.valid_move?([x,y])) && (@board[[x,y]].color != @color)
+    unblocked_moves
   end
 
 end

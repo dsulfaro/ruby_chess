@@ -1,6 +1,4 @@
-require_relative "pieces/piece"
-require_relative "pieces/null"
-require "byebug"
+require_relative "pieces"
 
 class Board
 
@@ -46,3 +44,8 @@ class Board
   end
 
 end
+
+bo = Board.new
+bo[[0, 0]] = Queen.new(:white, bo, [0, 0])
+# bo[[0, 1]] = Rook.new(:black, bo, [0, 1])
+ p bo[[0, 0]].moves
