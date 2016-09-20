@@ -1,5 +1,13 @@
 class Piece
 
+  MOVES = {
+    left: [0, -1],
+    right: [0, 1],
+    up: [-1, 0],
+    down: [1, 0]
+  }
+
+
   def initalize(color, board, pos)
     @color = color
     @board = board
@@ -10,6 +18,7 @@ class Piece
   end
 
   def empty?
+    false
   end
 
   def symbol

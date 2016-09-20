@@ -8,6 +8,15 @@ module SlidingPiece
   end
 
   def horizontal_dirs
+    dirs = []
+    x,y = self.pos
+
+    MOVES.each do |k,v|
+      new_pos = [v.first + x, v.last + y]
+      dirs << new_pos
+    end
+
+    dirs
   end
 
   def diagonal_dirs
