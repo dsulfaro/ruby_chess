@@ -12,18 +12,14 @@ class Display
     @cursor = Cursor.new([0,0], board)
   end
 
-  def render
-
-  end
-
   def render_visuals
     @board.grid.each_with_index do |row, i|
       row.each_with_index do |col, j|
         pos = [i, j]
         if [i, j] == @cursor.cursor_pos
-          print @board[pos].colorize(:red)
+          print @board[pos].to_s.colorize(:red)
         else
-          print @board[pos]
+          print @board[pos].to_s
         end
       end
       print "\n"

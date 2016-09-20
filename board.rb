@@ -1,4 +1,5 @@
-require_relative "piece"
+require_relative "pieces/piece"
+require_relative "pieces/null"
 require "byebug"
 
 class Board
@@ -6,7 +7,7 @@ class Board
   attr_reader :grid
 
   def initialize
-    @grid = Array.new(8) { Array.new(8) { "x" } }
+    @grid = Array.new(8) { Array.new(8) { NullPiece.instance } }
   end
 
   def grid
