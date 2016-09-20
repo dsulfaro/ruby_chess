@@ -54,7 +54,7 @@ module SlidingPiece
     end
 
     # if there's an enemy, add that position as well
-    unblocked_moves << [x,y] if (self.valid_move?([x,y])) && (@board[[x,y]].color != @color)
+    unblocked_moves << [x,y] if (self.valid_move?([x,y]))
     unblocked_moves
   end
 
