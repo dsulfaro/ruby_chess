@@ -26,8 +26,9 @@ class Piece
 
     return false if x < 0 || x > 7
     return false if y < 0 || y > 7
-    return false unless @board[[x,y]].color == @color
-    
+    return false if @board[[x,y]].color == @color
+
+
     true
   end
 

@@ -45,7 +45,10 @@ class Board
 
 end
 
-bo = Board.new
-bo[[0, 0]] = Queen.new(:white, bo, [0, 0])
-# bo[[0, 1]] = Rook.new(:black, bo, [0, 1])
- p bo[[0, 0]].moves
+# bo = Board.new
+# bo[[6, 1]] = Pawn.new(:white, bo, [6, 1])
+# bo[[5, 1]] = Rook.new(:black, bo, [5, 1])
+# bo[[5, 0]] = Rook.new(:black, bo, [5, 0])
+# bo[[5, 2]] = Rook.new(:black, bo, [5, 2])
+# # bo[[1, 2]] = Rook.new(:black, bo, [1, 2])
+#  p bo[[6, 1]].moves

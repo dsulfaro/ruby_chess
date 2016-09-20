@@ -1,16 +1,16 @@
 module SteppingPiece
 
   def moves
-    moves = []
+    move = []
     x, y = @pos
     move_diffs.each do |positions|
       dx, dy = positions
       new_pos = [(x + dx), (y + dy)]
 
-      moves << new_pos if self.valid_pos?(new_pos)
+      move << new_pos if self.valid_move?(new_pos)
     end
 
-    moves
+    move
   end
 
   private
