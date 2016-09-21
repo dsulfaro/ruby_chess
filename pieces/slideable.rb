@@ -47,7 +47,7 @@ module SlidingPiece
     x += dx
     y += dy
 
-    while (self.valid_move?([x,y])) && (@board[[x,y]].is_a? NullPiece)
+    while (self.valid_move?([x,y])) # && (@board[[x,y]].is_a? NullPiece)
       unblocked_moves << [x,y]
       x += dx
       y += dy

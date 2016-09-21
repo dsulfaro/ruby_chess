@@ -62,7 +62,6 @@ class Board
     @grid.each_index do |i|
       @grid[i].each_index do |j|
         next if (self[[i,j]].color != color) || (self[[i,j]].is_a? (NullPiece))
-        p self[[i,j]].moves
         return false unless (self[[i,j]].valid_moves.empty?)
       end
     end
@@ -88,7 +87,7 @@ end
 
 
 bo = Board.new
-bo[[6, 1]] = King.new(:white, bo, [6, 1])
+bo[[6, 2]] = King.new(:white, bo, [6, 2])
 bo[[0, 0]] = Queen.new(:black, bo, [0, 0])
 bo[[0, 1]] = Queen.new(:black, bo, [0, 1])
 bo[[0, 2]] = Queen.new(:black, bo, [0, 2])
@@ -108,4 +107,7 @@ bo[[0, 2]] = Queen.new(:black, bo, [0, 2])
 # p co[[6,1]].symbol
 # p bo[[6, 1]].move_into_check?([6,2])
 
-p bo[[6, 1]].valid_moves
+# p bo.checkmate?(:white)
+
+
+p bo.checkmate?(:white)

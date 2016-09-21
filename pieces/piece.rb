@@ -35,7 +35,7 @@ class Piece
     true
   end
 
-  private
+  # private
 
   def move_into_check?(to_pos)
     cpy = @board.dup
