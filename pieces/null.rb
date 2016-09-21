@@ -11,6 +11,10 @@ class NullPiece
     :none
   end
 
+  def moves
+    []
+  end
+
   def empty?
     true
   end

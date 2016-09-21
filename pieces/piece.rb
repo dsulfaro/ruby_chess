@@ -19,6 +19,9 @@ class Piece
   end
 
   def valid_moves
+    self.moves.reject do |coords|
+      move_into_check?(coords)
+    end
   end
 
   def valid_move?(pos)
@@ -33,7 +36,14 @@ class Piece
   end
 
   private
+
   def move_into_check?(to_pos)
+    cpy = @board.dup
+    cpy[@pos] = NullPiece.instance
+    cpy[to_pos] = self
+    cpy.in_check?(@color)
 
   end
+
+
 end
